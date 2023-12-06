@@ -1,5 +1,5 @@
 const Rectangle = require("../lib/rectangle");
-
+// Tests that the result from the generateShape function returns the correct data
 
 describe('Create rectangle svg.', () => {
     describe('Tests the create method from class.', () => {

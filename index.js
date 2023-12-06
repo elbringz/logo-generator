@@ -1,3 +1,4 @@
+// Add required files.
 const inquirer = require('inquirer');
 const fs = require('fs');
 const Shape = require('./lib/shape');
@@ -7,6 +8,7 @@ const Triangle = require('./lib/triangle');
 var userShape = '';
 const file = './Examples/logo.svg';
 
+// Set of prompt questions to be answered by the user
 const promptQuestions = [
     'Provide 3 letters you wish to include in your logo.',
 
@@ -16,7 +18,7 @@ const promptQuestions = [
     
     'Pick a color for your 3 letters.',
 ];
-
+// Function that starts the prompts and writes resulting data to the logo.svg file
 function startShape() {
     inquirer
     .prompt([
@@ -60,4 +62,5 @@ function startShape() {
         })
     })
 }
+// Calls the function to start logo generation
 startShape();

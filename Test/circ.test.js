@@ -1,5 +1,5 @@
 const Circle = require("../lib/circle")
-
+// Tests that the result from the generateShape function returns the correct data
 
 describe('Create circle svg.', () => {
     describe('Tests the create method from class.', () => {
@@ -8,7 +8,7 @@ describe('Create circle svg.', () => {
             const shape = new Circle("ttt", "green", "blue");
             shape.generateShape();
             const shapeVals = shape.create;
-            expect(shapeVals).toBe(`cx="25" cy="75" r="20" fill="blue"`);
+            expect(shapeVals).toBe(`cx="100" cy="100" r="75" fill="blue"`);
         })
     })
     });
