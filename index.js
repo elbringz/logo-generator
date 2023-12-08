@@ -45,16 +45,20 @@ function startShape() {
         }
     ])
     .then((content) => {
-        if(content.shape == 'Triangle') {
-            userShape = new Triangle(content.text, content.colorText, content.colorShape);
-        } else if(content.shape == 'Rectangle') {
-            userShape = new Rectangle(content.text, content.colorText, content.colorShape);
-        } else if(content.shape == 'Circle') {
-            userShape = new Circle(content.text, content.colorText, content.colorShape);
+        const shapeMap = {
+            'Triangle': Triangle,
+            'Rectangle': Rectangle,
+            'Circle': Circle
+        };
+        
+        const selectedShapeClass = shapeMap[content.shape];
+        
+        if (selectedShapeClass) {
+            userShape = new selectedShapeClass(content.text, content.colorText, content.colorShape);
         } else {
             console.log('Error creating your logo. Please try again.');
         }
-
+        
         userShape.generateShape();
         const userShapeCode = userShape.generate();
         fs.writeFile(file, userShapeCode, (err) => {
